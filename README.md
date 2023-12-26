@@ -1,16 +1,16 @@
 # cv_app
 
 A new Flutter project.
+A simple project that enables you to create your own CV with the ability to share it in PDF format.
+ For this project I use clean architecture and desgin pattern (cubit) and sqflite to save local data.
+package: bloc - fliePiker - pdf - share_plus - sqflite
 
-## Getting Started
+## Screenshote 
 
-This project is a starting point for a Flutter application.
+![Screenshot_1703516191](https://github.com/malknany/Resume_App/assets/73651294/42e40394-c189-4109-9c69-225556026506)
 
-A few resources to get you started if this is your first Flutter project:
+![Screenshot_1703516173](https://github.com/malknany/Resume_App/assets/73651294/79722b38-d546-4f58-b244-e20f34288683)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![Screenshot_1703516223](https://github.com/malknany/Resume_App/assets/73651294/4c7ca92e-0e62-4f1c-b075-784c2899eefd)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Screenshot_1703516201](https://github.com/malknany/Resume_App/assets/73651294/728effc6-3bea-4edc-bbb4-5d5bb5577128)
