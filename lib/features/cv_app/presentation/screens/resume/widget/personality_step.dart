@@ -31,8 +31,9 @@ class _PersonalityStepState extends State<PersonalityStep> {
   pickImage() async {
     final pickedFile =
         await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (pickedFile != Null) {
-      final bytes = await pickedFile!.readAsBytes();
+    
+    if (pickedFile != null) {
+      final bytes = await pickedFile.readAsBytes();
       PersonalityStep.imagePath = Utility.base64String(bytes);
       setState(() {});
       msg = 'Selected Image';

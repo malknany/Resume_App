@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'features/cv_app/presentation/screens/splash/view.dart';
 
@@ -12,12 +11,9 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      builder: (context, child) => MaterialApp(
-        title: 'Flutter Demo',
-        home: child,
-      ),
-      child: const SplashScreen(),
-    );
+    return const MaterialApp(
+        title: 'Flutter App-CV',
+        home:  SplashScreen(),
+      );
   }
 }

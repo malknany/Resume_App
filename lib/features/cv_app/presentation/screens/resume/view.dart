@@ -7,7 +7,7 @@ import '../view_resume/view.dart';
 import 'widget/personality_step.dart';
 import 'controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class ResumeStepper extends StatefulWidget {
   const ResumeStepper({Key? key}) : super(key: key);
@@ -27,9 +27,9 @@ class _ResumeStepperState extends State<ResumeStepper> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Text(
+        title: const Text(
           'Your Resume ',
-          style: TextStyle(fontSize: 20.sp, color: AppColors.myindgo),
+          style: TextStyle(fontSize: 20 , color: AppColors.myindgo),
         ),
         centerTitle: true,
         foregroundColor: AppColors.myindgo,
@@ -132,8 +132,8 @@ class _ResumeStepperState extends State<ResumeStepper> {
                     ),
                   )),
                   if (_resumeStepperControl.currentStep != 0)
-                    SizedBox(
-                      width: 15.w,
+                    const SizedBox(
+                      width: 15 ,
                     ),
                   if (_resumeStepperControl.currentStep != 0)
                     Expanded(
@@ -141,10 +141,10 @@ class _ResumeStepperState extends State<ResumeStepper> {
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white),
                       onPressed: details.onStepCancel,
-                      child: Text(
+                      child: const Text(
                         'Back',
                         style: TextStyle(
-                            fontSize: 13.sp, color: AppColors.myindgo),
+                            fontSize: 13 , color: AppColors.myindgo),
                       ),
                     )),
                 ],

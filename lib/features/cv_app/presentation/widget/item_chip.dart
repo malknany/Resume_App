@@ -1,6 +1,6 @@
 import '../../../../core/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class ItemChip extends StatefulWidget {
   const ItemChip(
       {Key? key, required this.textEditingController, required this.values})
@@ -25,10 +25,10 @@ class _ItemChipState extends State<ItemChip> {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.symmetric(vertical: 6.h, horizontal: 12.w),
+          margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(10.r),
+            borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.25),
@@ -55,27 +55,27 @@ class _ItemChipState extends State<ItemChip> {
                 ),
               ),
               focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(2.r),
-                  borderSide: BorderSide(
+                  borderRadius: BorderRadius.circular(2),
+                  borderSide: const BorderSide(
                       strokeAlign: BorderSide.strokeAlignInside,
-                      width: 1.w,
+                      width: 1,
                       color:  AppColors.myindgo)),
               enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.r),
+                  borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
                       strokeAlign: BorderSide.strokeAlignInside,
-                      width: 1.w,
+                      width: 1,
                       color: Colors.grey.shade600)),
               filled: true,
               fillColor: Colors.white,
               contentPadding:
-                  EdgeInsets.only(left: 30.w, top: 15.h, bottom: 15.h),
+                  const EdgeInsets.only(left: 30, top: 15, bottom: 15),
             ),
           ),
         ),
         Wrap(
-          spacing: 10.w,
-          runSpacing: 5.h,
+          spacing: 10,
+          runSpacing: 5,
           children: List.generate(
               widget.values.length,
               (index) => _Chip(

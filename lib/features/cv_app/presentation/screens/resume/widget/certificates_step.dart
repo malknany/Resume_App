@@ -1,7 +1,7 @@
 
 import '../../../widget/item_cv_textform.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class CertificatesStep extends StatelessWidget {
   const CertificatesStep({super.key, required this.certificates, required this.period, required this.link, required this.description});
@@ -21,8 +21,8 @@ class CertificatesStep extends StatelessWidget {
           'Certificates',
         ),
         ItemCvTextformField(textEditingController: certificates),
-        SizedBox(
-          height: 15.h,
+        const SizedBox(
+          height: 15,
         ),
         const Text(
           'Certificate period',

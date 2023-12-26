@@ -7,7 +7,6 @@ import '../../../domain/entities/resume.dart';
 import '../resume/controller.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:screenshot/screenshot.dart';
 
 class ViewResumeScreen extends StatelessWidget {
@@ -34,10 +33,10 @@ class ViewResumeScreen extends StatelessWidget {
         ),
         foregroundColor: AppColors.myindgo,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Your Cv',
           style: TextStyle(
-            fontSize: 25.sp,
+            fontSize: 25,
             color: AppColors.myindgo,
           ),
         ),
@@ -52,21 +51,6 @@ class ViewResumeScreen extends StatelessWidget {
                 Icons.share,
                 color: AppColors.myindgo,
               )),
-          // IconButton(
-          //     onPressed: () {
-          //       Navigator.pushAndRemoveUntil(
-          //         context,
-          //         MaterialPageRoute(
-          //           builder: (context) => const HomePage(),
-          //         ),
-          //         (route) => false,
-          //       );
-          //       BlocProvider.of<CvAppCubit>(context).emitGetAllResume();
-          //     },
-          //     icon: const Icon(
-          //       Icons.home,
-          //       color: AppColors.myindgo,
-          //     ))
         ],
       ),
       body: Screenshot(
@@ -79,7 +63,7 @@ class ViewResumeScreen extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                height: 85.h,
+                height: 85,
                 color: const Color(0xff8D4B55),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -89,7 +73,7 @@ class ViewResumeScreen extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * 0.5,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(
-                          50.r,
+                          50,
                         ),
                       ),
                       child: Utility.imageFromBase64String(resume.image),
@@ -101,15 +85,15 @@ class ViewResumeScreen extends StatelessWidget {
                         Expanded(
                           child: Text(
                             resume.name,
-                            style:
-                                TextStyle(fontSize: 20.sp, color: Colors.white),
+                            style: const TextStyle(
+                                fontSize: 20, color: Colors.white),
                           ),
                         ),
                         Expanded(
                           child: Text(
                             resume.jobTitle,
-                            style: TextStyle(
-                              fontSize: 15.sp,
+                            style: const TextStyle(
+                              fontSize: 15,
                               color: Colors.white,
                             ),
                           ),
@@ -124,161 +108,162 @@ class ViewResumeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.5,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'personality',
-                            style: TextStyle(
-                                fontSize: 17.sp,
-                                color: const Color(0xff8D4B55)),
-                          ),
-                          SizedBox(
-                            width: 100.w,
-                            child: const Divider(
-                              color: Color(0xff8D4B55),
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'personality',
+                              style: TextStyle(
+                                  fontSize: 17, color: Color(0xff8D4B55)),
                             ),
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Icon(
-                                Icons.email,
-                                color: Colors.black,
-                                size: 15,
+                            const SizedBox(
+                              width: 100,
+                              child: Divider(
+                                color: Color(0xff8D4B55),
                               ),
-                              SizedBox(
-                                width: 5.w,
-                              ),
-                              Text(
-                                resume.email,
-                                style: TextStyle(
-                                  fontSize: 12.sp,
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Icon(
+                                  Icons.email,
                                   color: Colors.black,
+                                  size: 15,
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  resume.email,
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Icon(
+                                  Icons.phone_android,
+                                  color: Colors.black,
+                                  size: 15,
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  resume.phone,
+                                  style: const TextStyle(
+                                      fontSize: 12, color: Colors.black),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Icon(
+                                  Icons.location_pin,
+                                  color: Colors.black,
+                                  size: 15,
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  resume.address,
+                                  style: const TextStyle(
+                                      fontSize: 12, color: Colors.black),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            const Text(
+                              'Language',
+                              style: TextStyle(
+                                  fontSize: 17, color: Color(0xff8D4B55)),
+                            ),
+                            const SizedBox(
+                              width: 80,
+                              child: Divider(
+                                color: Color(0xff8D4B55),
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: List.generate(
+                                resume.nativeLanguage.split(',').length,
+                                (index) => Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 2.0),
+                                  child: Text(
+                                    '- ${resume.nativeLanguage.split(',')[index]}',
+                                    style: const TextStyle(
+                                        fontSize: 12, color: Colors.black),
+                                  ),
                                 ),
                               ),
-                            ],
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Icon(
-                                Icons.phone_android,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            const Text(
+                              'Experience',
+                              style: TextStyle(
+                                  fontSize: 17, color: Color(0xff8D4B55)),
+                            ),
+                            const SizedBox(
+                              width: 90,
+                              child: Divider(
+                                color: Color(0xff8D4B55),
+                              ),
+                            ),
+                            Text(
+                              '- Experience : \n ${resume.description} ',
+                              softWrap: true,
+                              style: const TextStyle(
+                                fontSize: 12,
                                 color: Colors.black,
-                                size: 15,
-                              ),
-                              SizedBox(
-                                width: 5.w,
-                              ),
-                              Text(
-                                resume.phone,
-                                style: TextStyle(
-                                    fontSize: 12.sp, color: Colors.black),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Icon(
-                                Icons.location_pin,
-                                color: Colors.black,
-                                size: 15,
-                              ),
-                              SizedBox(
-                                width: 5.w,
-                              ),
-                              Text(
-                                resume.address,
-                                style: TextStyle(
-                                    fontSize: 12.sp, color: Colors.black),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          Text(
-                            'Language',
-                            style: TextStyle(
-                                fontSize: 17.sp,
-                                color: const Color(0xff8D4B55)),
-                          ),
-                          SizedBox(
-                            width: 80.w,
-                            child: const Divider(
-                              color: Color(0xff8D4B55),
-                            ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: List.generate(
-                              resume.nativeLanguage.split(',').length,
-                              (index) => Padding(
-                                padding: EdgeInsets.symmetric(vertical: 2.0.h),
-                                child: Text(
-                                  '- ${resume.nativeLanguage.split(',')[index]}',
-                                  style: TextStyle(
-                                      fontSize: 12.sp, color: Colors.black),
-                                ),
+                                //overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          Text(
-                            'Experience',
-                            style: TextStyle(
-                                fontSize: 17.sp,
-                                color: const Color(0xff8D4B55)),
-                          ),
-                          SizedBox(
-                            width: 90.w,
-                            child: const Divider(
-                              color: Color(0xff8D4B55),
-                            ),
-                          ),
-                          Text(
-                            '- Experience : \n ${resume.description} ',
-                            softWrap: true,
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: Colors.black,
-                              //overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   Expanded(
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.5,
+                      padding: const EdgeInsets.all(10),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'certificates',
                             style: TextStyle(
-                                fontSize: 17.sp,
-                                color: const Color(0xff8D4B55)),
+                                fontSize: 17, color: Color(0xff8D4B55)),
                           ),
-                          SizedBox(
-                            width: 100.w,
-                            child: const Divider(
+                          const SizedBox(
+                            width: 100,
+                            child: Divider(
                               color: Color(0xff8D4B55),
                             ),
                           ),
                           Text(
                             '- ${resume.certificates}  ',
                             softWrap: true,
-                            style: TextStyle(
-                              fontSize: 12.sp,
+                            style: const TextStyle(
+                              fontSize: 12,
                               color: Colors.black,
                             ),
                           ),
@@ -287,29 +272,28 @@ class ViewResumeScreen extends StatelessWidget {
                             //softWrap: true,
                             textAlign: TextAlign.start,
                             overflow: TextOverflow.ellipsis,
-                            style:
-                                TextStyle(fontSize: 12.sp, color: Colors.black),
+                            style: const TextStyle(
+                                fontSize: 12, color: Colors.black),
                           ),
                           Text(
                             '- ${resume.link} ',
                             //softWrap: true,
                             textAlign: TextAlign.start,
                             overflow: TextOverflow.ellipsis,
-                            style:
-                                TextStyle(fontSize: 12.sp, color: Colors.black),
+                            style: const TextStyle(
+                                fontSize: 12, color: Colors.black),
                           ),
-                          SizedBox(
-                            height: 10.h,
+                          const SizedBox(
+                            height: 10,
                           ),
-                          Text(
+                          const Text(
                             'Education',
                             style: TextStyle(
-                                fontSize: 17.sp,
-                                color: const Color(0xff8D4B55)),
+                                fontSize: 17, color: Color(0xff8D4B55)),
                           ),
-                          SizedBox(
-                            width: 100.w,
-                            child: const Divider(
+                          const SizedBox(
+                            width: 100,
+                            child: Divider(
                               color: Color(0xff8D4B55),
                             ),
                           ),
@@ -317,35 +301,34 @@ class ViewResumeScreen extends StatelessWidget {
                             '- ${resume.universityName} ',
                             softWrap: true,
                             textAlign: TextAlign.start,
-                            style:
-                                TextStyle(fontSize: 12.sp, color: Colors.black),
+                            style: const TextStyle(
+                                fontSize: 12, color: Colors.black),
                           ),
                           Text(
                             '- Degree:${resume.degreeOfCertificates} ',
                             softWrap: true,
                             textAlign: TextAlign.start,
-                            style:
-                                TextStyle(fontSize: 12.sp, color: Colors.black),
+                            style: const TextStyle(
+                                fontSize: 12, color: Colors.black),
                           ),
                           Text(
                             '- GraduationYear:${resume.graduationYear} ',
                             softWrap: true,
                             textAlign: TextAlign.start,
-                            style:
-                                TextStyle(fontSize: 12.sp, color: Colors.black),
+                            style: const TextStyle(
+                                fontSize: 12, color: Colors.black),
                           ),
-                          SizedBox(
-                            height: 10.h,
+                          const SizedBox(
+                            height: 10,
                           ),
-                          Text(
+                          const Text(
                             'Skills',
                             style: TextStyle(
-                                fontSize: 17.sp,
-                                color: const Color(0xff8D4B55)),
+                                fontSize: 17, color: Color(0xff8D4B55)),
                           ),
-                          SizedBox(
-                            width: 100.w,
-                            child: const Divider(
+                          const SizedBox(
+                            width: 100,
+                            child: Divider(
                               color: Color(0xff8D4B55),
                             ),
                           ),
@@ -355,11 +338,12 @@ class ViewResumeScreen extends StatelessWidget {
                             children: List.generate(
                               resume.nonTechnicalSkills.split(',').length,
                               (index) => Padding(
-                                padding: EdgeInsets.symmetric(vertical: 2.0.h),
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 2.0),
                                 child: Text(
                                   '- ${resume.nonTechnicalSkills.split(',')[index]}',
-                                  style: TextStyle(
-                                      fontSize: 12.sp, color: Colors.black),
+                                  style: const TextStyle(
+                                      fontSize: 12, color: Colors.black),
                                 ),
                               ),
                             ),
@@ -370,11 +354,12 @@ class ViewResumeScreen extends StatelessWidget {
                             children: List.generate(
                               resume.technicalSkills.split(',').length,
                               (index) => Padding(
-                                padding: EdgeInsets.symmetric(vertical: 2.0.h),
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 2.0),
                                 child: Text(
                                   '- ${resume.technicalSkills.split(',')[index]}',
-                                  style: TextStyle(
-                                      fontSize: 12.sp, color: Colors.black),
+                                  style: const TextStyle(
+                                      fontSize: 12, color: Colors.black),
                                 ),
                               ),
                             ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 import '../../../../core/app_colors.dart';
 
@@ -15,9 +15,9 @@ class ItemCvTextformField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 6.h),
+      margin: const EdgeInsets.symmetric(vertical: 6 ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.r),
+        borderRadius: BorderRadius.circular(10 ),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.25),
@@ -27,6 +27,9 @@ class ItemCvTextformField extends StatelessWidget {
         ],
       ),
       child: TextFormField(
+        onTapOutside: (event) {
+            FocusManager.instance.primaryFocus!.unfocus();
+          },
         keyboardType: inputType,
         controller: textEditingController,
         onSaved: (newValue) {
@@ -34,20 +37,20 @@ class ItemCvTextformField extends StatelessWidget {
         },
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(2.r),
-              borderSide: BorderSide(
+              borderRadius: BorderRadius.circular(2 ),
+              borderSide: const BorderSide(
                   strokeAlign: BorderSide.strokeAlignInside,
-                  width: 1.w,
+                  width: 1 ,
                   color:  AppColors.myindgo)),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.r),
+              borderRadius: BorderRadius.circular(10 ),
               borderSide: BorderSide(
                   strokeAlign: BorderSide.strokeAlignInside,
-                  width: 1.w,
+                  width: 1 ,
                   color: Colors.grey.shade600)),
           filled: true,
           fillColor: Colors.white,
-          contentPadding: EdgeInsets.only(left: 30.w, top: 15.h, bottom: 15.h),
+          contentPadding: const EdgeInsets.only(left: 30 , top: 15 , bottom: 15 ),
         ),
       ),
     );
